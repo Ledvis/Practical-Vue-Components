@@ -1,6 +1,8 @@
 <template>
   <div>
-    <AppButton @click.prevent="clicked" :theme="'danger'" disabled />
+    <AppButton @click.prevent="clicked" :theme="'danger'" text="test" title="Sign up with account" target="_blank" >
+      <strong>hello world! &rarr;</strong>
+    </AppButton>
   </div>
 </template>
 

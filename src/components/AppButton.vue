@@ -4,7 +4,10 @@
     @click.native="clicked"
     :class="[themes[theme], sizes[size], {'disabled': disabled}]"
     :to="to"
-  >Sign in</router-link>
+    :title="`?: ${title}`"
+  >
+    <slot>{{ text }}</slot>
+  </router-link>
 </template>
 
 <script>
@@ -22,6 +25,16 @@ export default {
     }
   },
   props: {
+    title: {
+      required: false,
+      type: String,
+      default: ''
+    },
+    text: {
+      required: false,
+      type: String,
+      default: ''
+    },
     theme: {
       required: false,
       type: String,
@@ -48,11 +61,11 @@ export default {
     }
   },
   methods: {
-    clicked(e) {
+    clicked (e) {
       if (this.disabled) {
         return;
       }
-      
+
       this.$emit('click', e);
     }
   }
