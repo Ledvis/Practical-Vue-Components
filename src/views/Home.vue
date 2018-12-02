@@ -1,23 +1,28 @@
 <template>
   <div>
-    <AppButton @click.prevent="clicked" :theme="'danger'" text="test" title="Sign up with account" target="_blank" >
-      <strong>hello world! &rarr;</strong>
-    </AppButton>
+    <AppSignInModal />
+    <a href="#" @click.prevent="openModal">Open Modal</a>
   </div>
 </template>
-
 <script>
-import AppButton from '@/components/AppButton'
+import AppSignInModal from '@/components/modals/AppSignInModal'
 
 export default {
   name: 'home',
   components: {
-    AppButton
+    AppSignInModal
   },
   methods: {
-    clicked(evt) {
-      console.log(evt);
+    openModal() {
+      this.$modal.show('signin', {name: 'Zhenya'})
     }
   }
 }
 </script>
+
+<style>
+a {
+  margin-bottom: 10px;
+}
+</style>
+

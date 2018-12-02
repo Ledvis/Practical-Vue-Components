@@ -6,11 +6,12 @@
     :to="to"
     :title="`?: ${title}`"
   >
-    <slot>{{ text }}</slot>
+    <slot>{{ formatedText }}</slot>
   </router-link>
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -58,6 +59,11 @@ export default {
           name: 'home'
         }
       }
+    }
+  },
+  computed: {
+    formatedText() {
+      return 'This is formated text' + this.text;
     }
   },
   methods: {
